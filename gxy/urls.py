@@ -19,6 +19,7 @@ from comment import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', views.comment_show),
+    path('comment_show/', views.comment_show, name='comment_show'),
+    path('comment_analysis/', views.comment_analysis, name='comment_analysis'),
 
 ]

@@ -42,16 +42,13 @@
           <dt>欢迎来到评论分析网！</dt>
        </dl>
     </div>
-    <div class="header">
-       <div class="logo"><img src="{% static '/images/logo.jpg' %}"></div>
-    </div>
     <!-- 头部结束 -->
     <!-- 导航开始 -->
     <div class="menu">
       <ul>
-         <li><a href="#" class="menu_on">首页</a></li>
-         <li><a href="#">查看评论</a></li>
-         <li><a href="#">虚假评论分析</a></li>
+         <li><a href="{% url 'comment_show' %}" class="menu_on">首页</a></li>
+         <li><a href="{% url 'comment_show' %}">查看评论</a></li>
+         <li><a href="{% url 'comment_analysis' %}">虚假评论分析</a></li>
       </ul>
     </div>
     <!-- 导航结束 -->

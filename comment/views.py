@@ -4,6 +4,7 @@ import jieba
 import math
 import difflib
 import xlrd
+from .models import Comment
 from nltk.probability import FreqDist, ConditionalFreqDist
 from nltk.metrics import BigramAssocMeasures
 
@@ -217,7 +218,7 @@ def name_star():
     print("-------------------------------------------------------------------")
 
 
-def fake_comment_filter():
+def false_comment_filter():
     qingganfenxi()
     name_date()
     name_pl()
@@ -244,6 +245,38 @@ def fake_comment_filter():
 
 
 # Create your views here.
+def comment_analysis(request):
+    false_comment_filter()
+    return render(request, 'pages/comment_analysis.html', {'comments': res})
+
+
 def comment_show(request):
-    fake_comment_filter()
-    return render(request, 'pages/test.html')
+    true_comment = []
+    false_comment = []
+    # true
+    data = xlrd.open_workbook('true.xlsx') # all sheet
+    table = data.sheets()[0]  # 0th sheet
+    nrows = table.nrows
+    for i in range(nrows):
+        temp = Comment()
+        temp.username = str(table.row_values(i)[0])
+        temp.date = str(table.row_values(i)[1])
+        temp.score = str(table.row_values(i)[2])
+        temp.comment_text = str(table.row_values(i)[3])
+        temp.type = True
+        true_comment.append(temp)
+    # false
+    data = xlrd.open_workbook('false.xlsx') # all sheet
+    table = data.sheets()[0]  # 0th sheet
+    nrows = table.nrows
+    for i in range(nrows):
+        temp = Comment()
+        temp.username = str(table.row_values(i)[0])
+        temp.date = str(table.row_values(i)[1])
+        temp.score = str(table.row_values(i)[2])
+        temp.comment_text = str(table.row_values(i)[3])
+        temp.type = False
+        false_comment.append(temp)
+
+    return render(request, 'pages/comment_show.html', {'true_comments': true_comment, 'false_comments': false_comment})
+

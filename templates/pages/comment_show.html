@@ -1,0 +1,43 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+    <table align="center" border="1px solid">
+        <caption>真实评论</caption>
+        <tr>
+            <th>用户名</th>
+            <th>评论日期</th>
+            <th>评论分数</th>
+            <th>评论内容</th>
+        </tr>
+            {%for true_comment in true_comments %}
+                <tr>
+                    <td>{{ true_comment.username }}</td>
+                    <td>{{ true_comment.date }}</td>
+                    <td>{{ true_comment.score }}</td>
+                    <td>{{ true_comment.comment_text }}</td>
+                </tr>
+            {% endfor %}
+
+    </table>
+    <br/>
+    <br/>
+    <table align="center" border="1px solid">
+        <caption>虚假评论</caption>
+        <tr>
+            <th>用户名</th>
+            <th>评论日期</th>
+            <th>评论分数</th>
+            <th>评论内容</th>
+        </tr>
+            {%for false_comment in false_comments %}
+                <tr>
+                    <td>{{ false_comment.username }}</td>
+                    <td>{{ false_comment.date }}</td>
+                    <td>{{ false_comment.score }}</td>
+                    <td>{{ false_comment.comment_text }}</td>
+                </tr>
+            {% endfor %}
+
+    </table>
+
+{% endblock %}
