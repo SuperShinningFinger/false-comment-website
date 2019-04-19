@@ -1,0 +1,39 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+    <table align="center" border="1px solid">
+        <caption>{{ file_name }}</caption>
+        <tr>
+            <td style="float: left;">
+            <table border="1px solid">
+            <caption>真实评论者</caption>
+            <tr>
+                <th>用户名</th>
+                <th>分析结果</th>
+            </tr>
+                {%for key,value in true_list.items%}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            </td>
+            <td style="float: right;" >
+            <table border="1px solid">
+            <caption>虚假评论者</caption>
+            <tr>
+                <th>用户名</th>
+                <th>分析结果</th>
+            </tr>
+                {%for key,value in false_list.items%}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

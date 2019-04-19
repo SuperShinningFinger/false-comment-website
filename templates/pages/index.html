@@ -1,0 +1,25 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+    <div align="center">
+        <h1 style="font-size: 50px">我要识别</h1>
+        <br/>
+        <form enctype="multipart/form-data" action="{% url 'new_comment_analysis' %}" method="post">
+            {% csrf_token %}
+            <input type="file" name="myfile"/>
+            <br/>
+            <input type="submit" value="upload"/>
+        </form>
+
+    </div>
+    <br/>
+    <hr />
+    <div align="center">
+        <h1 style="font-size: 50px">查看示例</h1>
+        <br/>
+        <ul>
+            <li><a href="{% url 'comment_show' %}">查看评论</a></li>
+            <li><a href="{% url 'comment_analysis' %}">虚假评论分析</a></li>
+        </ul>
+    </div>
+{% endblock %}

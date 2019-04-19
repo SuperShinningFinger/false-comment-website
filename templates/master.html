@@ -5,13 +5,13 @@
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all" />
     <link href="{% static 'css/master.css' %}" rel="stylesheet" type="text/css" media="all" />
     <script src="{% static "js/changepage.js" %}" type="text/javascript"></script>
-    <title>个性化新闻推荐网站</title>
+    <title>虚假评论分析</title>
 </head>
     <body>
     <!doctype html>
     <html>
     <head>
-    <meta charset="gbk">
+    <meta charset="utf-8">
     <title>head</title>
     </head>
 
@@ -46,9 +46,7 @@
     <!-- 导航开始 -->
     <div class="menu">
       <ul>
-         <li><a href="{% url 'comment_show' %}" class="menu_on">首页</a></li>
-         <li><a href="{% url 'comment_show' %}">查看评论</a></li>
-         <li><a href="{% url 'comment_analysis' %}">虚假评论分析</a></li>
+         <li><a href="{% url 'index' %}" class="menu_on">首页</a></li>
       </ul>
     </div>
     <!-- 导航结束 -->

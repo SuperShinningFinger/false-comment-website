@@ -2,6 +2,9 @@
 {% load static %}
 {% block content %}
     <table align="center" border="1px solid">
+    <tr>
+    <td style="float: left">
+        <table border="1px solid" style="margin-right:2px">
         <caption>真实评论</caption>
         <tr>
             <th>用户名</th>
@@ -19,9 +22,9 @@
             {% endfor %}
 
     </table>
-    <br/>
-    <br/>
-    <table align="center" border="1px solid">
+    </td>
+    <td style="float: left">
+    <table border="1px solid" style="margin-left:2px">
         <caption>虚假评论</caption>
         <tr>
             <th>用户名</th>
@@ -37,7 +40,8 @@
                     <td>{{ false_comment.comment_text }}</td>
                 </tr>
             {% endfor %}
-
     </table>
-
+    </td>
+    </tr>
+    </table>
 {% endblock %}

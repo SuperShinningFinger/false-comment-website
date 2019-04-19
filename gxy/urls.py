@@ -21,5 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('comment_show/', views.comment_show, name='comment_show'),
     path('comment_analysis/', views.comment_analysis, name='comment_analysis'),
+    path('', views.index, name='index'),
+    path('new_comment_analysis', views.new_false_comment_filter, name='new_comment_analysis'),
 
 ]
